@@ -13,7 +13,7 @@
 
 MedEase is a pharmacy management web application designed specifically for independent Indian pharmacies and medical stores. It replaces expensive legacy software with a modern, fast, and completely free alternative.
 
-This is a final year project built by **Raj Thakre**.
+This is a university's micro-project built by **Raj Thakre**.
 
 ---
 
