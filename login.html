@@ -135,7 +135,7 @@
       e.preventDefault();
       var email = document.getElementById('loginEmail');
       var pw    = document.getElementById('loginPassword');
-      var btn   = e.target.querySelector('.auth-submit');
+      var btn = document.querySelector('#fieldPassword').closest('form').querySelector('.auth-submit');
       var valid = true;
 
       function setErr(fId, el, show) {
@@ -149,17 +149,43 @@
 
       if (!valid) return;
 
-      // Loading state
-      btn.classList.add('btn-loading');
-      btn.querySelector('.btn-text').textContent = 'Logging in…';
+btn.classList.add('btn-loading');
+btn.querySelector('.btn-text').textContent = 'Logging in…';
 
-      // Simulate API — replace with real call
-      setTimeout(function () {
-        btn.classList.remove('btn-loading');
-        btn.classList.add('btn-success');
-        btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Logged in';
-        console.log('Login:', email.value);
-      }, 1500);
+fetch('http://127.0.0.1:8000/auth/login', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    email:    email.value,
+    password: pw.value
+  })
+})
+.then(function(res) { return res.json(); })
+.then(function(data) {
+  if (data.access_token) {
+    localStorage.setItem('medease_token', data.access_token);
+    localStorage.setItem('medease_user', JSON.stringify(data.user));
+    btn.classList.remove('btn-loading');
+    btn.classList.add('btn-success');
+    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Logged in';
+    setTimeout(function() {
+      window.location.href = 'dashboard.html';
+    }, 800);
+  } else {
+    btn.classList.remove('btn-loading');
+    btn.querySelector('.btn-text').textContent = 'Log in';
+    // Show error under password field
+    document.getElementById('fieldPassword').classList.add('has-error');
+    document.getElementById('fieldPassword').querySelector('.auth-error-msg').textContent = data.detail || 'Incorrect email or password';
+    document.getElementById('fieldPassword').querySelector('.auth-error-msg').style.display = 'block';
+    document.getElementById('loginPassword').classList.add('auth-input-error');
+  }
+})
+.catch(function() {
+  btn.classList.remove('btn-loading');
+  btn.querySelector('.btn-text').textContent = 'Log in';
+  alert('Cannot connect to server. Make sure the backend is running.');
+});
     }
   </script>
 </body>

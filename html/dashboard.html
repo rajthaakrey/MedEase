@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard — MedEase</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Inter, sans-serif; }
+
+    body {
+      background: #eef2f1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Top bar ── */
+    .db-topbar {
+      background: white;
+      border-bottom: 1px solid #e2e8e2;
+      padding: 0 32px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .db-logo {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0d1a10;
+      letter-spacing: -0.03em;
+    }
+
+    .db-logo span { color: #1a9e5c; }
+
+    .db-topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .db-user-pill {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      background: #f7faf7;
+      border: 1px solid #e2e8e2;
+      border-radius: 20px;
+      padding: 6px 14px 6px 6px;
+    }
+
+    .db-avatar {
+      width: 28px; height: 28px;
+      background: #1a9e5c;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: white;
+      flex-shrink: 0;
+    }
+
+    .db-user-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: #0d1a10;
+    }
+
+    .db-logout-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: white;
+      border: 1px solid #e2e8e2;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #4a5c4d;
+      cursor: pointer;
+      font-family: Inter, sans-serif;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .db-logout-btn:hover {
+      background: #fef0f0;
+      border-color: #fca5a5;
+      color: #e03e3e;
+    }
+
+    /* ── Main content ── */
+    .db-main {
+      flex: 1;
+      padding: 40px 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .db-welcome {
+      margin-bottom: 32px;
+    }
+
+    .db-welcome-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #e8f7ef;
+      color: #0f6e3e;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      border: 1px solid #b8e8ce;
+      margin-bottom: 14px;
+    }
+
+    .db-welcome-title {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: #0d1a10;
+      margin-bottom: 6px;
+    }
+
+    .db-welcome-sub {
+      font-size: 14px;
+      color: #7a8c7d;
+    }
+
+    /* ── Stat cards ── */
+    .db-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .db-stat-card {
+      background: white;
+      border: 1px solid #e2e8e2;
+      border-radius: 20px;
+      padding: 20px 22px;
+    }
+
+    .db-stat-label {
+      font-size: 12px;
+      color: #7a8c7d;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .db-stat-value {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: #0d1a10;
+    }
+
+    .db-stat-sub {
+      font-size: 11px;
+      color: #1a9e5c;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* ── Coming soon card ── */
+    .db-coming-soon {
+      background: white;
+      border: 1px solid #e2e8e2;
+      border-radius: 20px;
+      padding: 48px;
+      text-align: center;
+    }
+
+    .db-cs-icon {
+      width: 56px; height: 56px;
+      background: #e8f7ef;
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      color: #1a9e5c;
+      margin: 0 auto 16px;
+    }
+
+    .db-cs-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0d1a10;
+      margin-bottom: 8px;
+      letter-spacing: -0.03em;
+    }
+
+    .db-cs-sub {
+      font-size: 13px;
+      color: #7a8c7d;
+      line-height: 1.6;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="db-topbar">
+    <div class="db-logo">Med<span>Ease</span></div>
+    <div class="db-topbar-right">
+      <div class="db-user-pill">
+        <div class="db-avatar" id="dbAvatar">RK</div>
+        <span class="db-user-name" id="dbUserName">Loading...</span>
+      </div>
+      <button class="db-logout-btn" onclick="logout()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Log out
+      </button>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div class="db-main">
+
+    <!-- Welcome -->
+    <div class="db-welcome">
+      <div class="db-welcome-eyebrow">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="#1a9e5c"><circle cx="12" cy="12" r="10"/></svg>
+        Live dashboard
+      </div>
+      <h1 class="db-welcome-title" id="dbWelcomeTitle">Welcome back!</h1>
+      <p class="db-welcome-sub" id="dbWelcomeSub">Here's what's happening at your pharmacy today.</p>
+    </div>
+
+    <!-- Placeholder stat cards -->
+    <div class="db-stats">
+      <div class="db-stat-card">
+        <div class="db-stat-label">Today's Sales</div>
+        <div class="db-stat-value">₹0</div>
+        <div class="db-stat-sub">Getting started</div>
+      </div>
+      <div class="db-stat-card">
+        <div class="db-stat-label">Medicines</div>
+        <div class="db-stat-value">0</div>
+        <div class="db-stat-sub">In inventory</div>
+      </div>
+      <div class="db-stat-card">
+        <div class="db-stat-label">Expiring Soon</div>
+        <div class="db-stat-value">0</div>
+        <div class="db-stat-sub">Next 30 days</div>
+      </div>
+      <div class="db-stat-card">
+        <div class="db-stat-label">Transactions</div>
+        <div class="db-stat-value">0</div>
+        <div class="db-stat-sub">Today so far</div>
+      </div>
+    </div>
+
+    <!-- Coming soon -->
+    <div class="db-coming-soon">
+      <div class="db-cs-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+      </div>
+      <h2 class="db-cs-title">Full dashboard coming soon</h2>
+      <p class="db-cs-sub">
+        Inventory management, billing, expiry alerts, supplier management
+        and demand forecasting — all being built right now.
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+    // ── Auth guard — redirect to login if not logged in ──
+    var token = localStorage.getItem('medease_token');
+    var user  = JSON.parse(localStorage.getItem('medease_user') || 'null');
+
+    if (!token || !user) {
+      window.location.href = 'login.html';
+    }
+
+    // ── Personalise with real user data ──
+    if (user) {
+      // Avatar initials
+      var initials = user.name
+        .split(' ')
+        .map(function(w) { return w[0]; })
+        .join('')
+        .toUpperCase()
+        .slice(0, 2);
+
+      document.getElementById('dbAvatar').textContent      = initials;
+      document.getElementById('dbUserName').textContent    = user.name;
+      document.getElementById('dbWelcomeTitle').textContent = 'Welcome back, ' + user.name.split(' ')[0] + '!';
+      document.getElementById('dbWelcomeSub').textContent  =
+        'Here\'s what\'s happening at ' + user.pharmacy_name + ' today.';
+    }
+
+    // ── Logout ──
+    function logout() {
+      localStorage.removeItem('medease_token');
+      localStorage.removeItem('medease_user');
+      window.location.href = 'login.html';
+    }
+
+    // ── Optional: verify token is still valid with the backend ──
+    if (token) {
+      fetch('http://127.0.0.1:8000/auth/me', {
+        headers: { 'Authorization': 'Bearer ' + token }
+      })
+      .then(function(res) {
+        if (res.status === 401) {
+          // Token expired or invalid — force logout
+          logout();
+        }
+        return res.json();
+      })
+      .then(function(data) {
+        // Update stored user with fresh data from server
+        if (data.id) {
+          localStorage.setItem('medease_user', JSON.stringify(data));
+        }
+      })
+      .catch(function() {
+        // Backend not reachable — stay on page with cached data
+        console.log('Backend offline — showing cached user data');
+      });
+    }
+  </script>
+
+</body>
+</html>

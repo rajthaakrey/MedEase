@@ -297,14 +297,47 @@
       setErr('s2fieldPassword', pw,    !pw.value || pw.value.length < 8);
       setErr('s2fieldConfirm',  conf,  conf.value !== pw.value);
 
-      if (valid) {
-        console.log('Signup complete:', {
-          pharmacy: document.getElementById('s1Pharmacy').value,
-          name: document.getElementById('s1Name').value,
-          role: selectedRole,
-          email: email.value
-        });
-      }
+      if (!valid) return;
+var btn = document.querySelector('#signupStep2 .auth-submit');
+btn.classList.add('btn-loading');
+btn.querySelector('.btn-text').textContent = 'Creating account…';
+
+fetch('http://127.0.0.1:8000/auth/signup', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    pharmacy_name: document.getElementById('s1Pharmacy').value,
+    name:          document.getElementById('s1Name').value,
+    role:          selectedRole,
+    email:         email.value,
+    password:      pw.value
+  })
+})
+.then(function(res) { return res.json(); })
+.then(function(data) {
+  if (data.access_token) {
+    localStorage.setItem('medease_token', data.access_token);
+    localStorage.setItem('medease_user', JSON.stringify(data.user));
+    btn.classList.remove('btn-loading');
+    btn.classList.add('btn-success');
+    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Account created!';
+    setTimeout(function() {
+      window.location.href = 'dashboard.html';
+    }, 1000);
+  } else {
+    btn.classList.remove('btn-loading');
+    btn.querySelector('.btn-text').textContent = 'Create free account';
+    document.getElementById('s2fieldEmail').classList.add('has-error');
+    document.getElementById('s2fieldEmail').querySelector('.auth-error-msg').textContent = data.detail || 'Something went wrong';
+    document.getElementById('s2fieldEmail').querySelector('.auth-error-msg').style.display = 'block';
+    document.getElementById('s2Email').classList.add('auth-input-error');
+  }
+})
+.catch(function() {
+  btn.classList.remove('btn-loading');
+  btn.querySelector('.btn-text').textContent = 'Create free account';
+  alert('Cannot connect to server. Make sure the backend is running on port 8000.');
+});
     }
   </script>
 </body>
