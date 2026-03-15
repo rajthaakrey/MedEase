@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get Started — MedEase</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/auth.css"/>
+</head>
+<body>
+
+  <a href="index.html" class="auth-back">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Back to home
+  </a>
+
+  <div class="auth-card auth-card-signup">
+
+    <div class="auth-logo">
+      <div class="auth-logo-mark">M</div>
+      <span class="auth-logo-name">MedEase</span>
+    </div>
+
+    <!-- Step indicator -->
+    <div class="auth-steps" id="authSteps">
+      <div class="auth-step-item auth-step-active" id="stepDot1">
+        <div class="auth-step-dot">1</div>
+        <span class="auth-step-label">Your profile</span>
+      </div>
+      <div class="auth-step-connector" id="stepConnector"></div>
+      <div class="auth-step-item" id="stepDot2">
+        <div class="auth-step-dot">2</div>
+        <span class="auth-step-label">Secure account</span>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div id="signupStep1">
+      <h1 class="auth-title">Tell us about your pharmacy</h1>
+      <p class="auth-subtitle">Step 1 of 2 — your profile details</p>
+
+      <form class="auth-form" onsubmit="goStep2(event)">
+
+        <div class="auth-field" id="s1fieldPharmacy">
+          <label class="auth-label">Pharmacy name</label>
+          <div class="auth-input-wrap">
+            <span class="auth-input-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </span>
+            <input type="text" id="s1Pharmacy" class="auth-input" placeholder="e.g. Khandelwal Pharmacy" autocomplete="organization"/>
+          </div>
+          <span class="auth-error-msg">Pharmacy name is required</span>
+        </div>
+
+        <div class="auth-field" id="s1fieldName">
+          <label class="auth-label">Your name</label>
+          <div class="auth-input-wrap">
+            <span class="auth-input-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </span>
+            <input type="text" id="s1Name" class="auth-input" placeholder="Rohan Khandelwal" autocomplete="name"/>
+          </div>
+          <span class="auth-error-msg">Your name is required</span>
+        </div>
+
+        <div class="auth-field">
+          <label class="auth-label">Your role</label>
+          <div class="auth-role-grid">
+            <button type="button" class="auth-role-btn role-active" data-role="owner" onclick="selectRole(this)">
+              <div class="auth-role-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+              </div>
+              <span class="auth-role-label">Owner</span>
+            </button>
+            <button type="button" class="auth-role-btn" data-role="pharmacist" onclick="selectRole(this)">
+              <div class="auth-role-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+              <span class="auth-role-label">Pharmacist</span>
+            </button>
+            <button type="button" class="auth-role-btn" data-role="staff" onclick="selectRole(this)">
+              <div class="auth-role-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <span class="auth-role-label">Staff</span>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="auth-submit">
+          Continue
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+
+      </form>
+
+      <div class="auth-switch" style="margin-top:14px;">
+        Already have an account? <a href="login.html">Log in</a>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div id="signupStep2" style="display:none;">
+
+      <button type="button" class="auth-back-step" onclick="goBack()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back
+      </button>
+
+      <h1 class="auth-title">Secure your account</h1>
+      <p class="auth-subtitle">Step 2 of 2 — almost there</p>
+
+      <div class="auth-profile-summary">
+        <div class="auth-summary-avatar" id="summaryAvatar"></div>
+        <div class="auth-summary-info">
+          <div class="auth-summary-name" id="summaryName"></div>
+          <div class="auth-summary-pharmacy" id="summaryPharmacy"></div>
+        </div>
+      </div>
+
+      <form class="auth-form" onsubmit="handleSignup(event)">
+
+        <div class="auth-field" id="s2fieldEmail">
+          <label class="auth-label">Email address</label>
+          <div class="auth-input-wrap">
+            <span class="auth-input-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </span>
+            <input type="email" id="s2Email" class="auth-input" placeholder="you@pharmacy.com" autocomplete="email"/>
+          </div>
+          <span class="auth-error-msg">Valid email address required</span>
+        </div>
+
+        <div class="auth-field" id="s2fieldPassword">
+          <label class="auth-label">Password</label>
+          <div class="auth-input-wrap">
+            <span class="auth-input-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </span>
+            <input type="password" id="s2Password" class="auth-input" placeholder="Min. 8 characters" autocomplete="new-password" oninput="checkStrength(this.value)"/>
+            <button type="button" class="auth-pw-toggle" onclick="togglePw('s2Password',this)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <div class="auth-pw-strength" id="pwStrength">
+            <div class="auth-pw-bar-track"><div class="auth-pw-bar-fill" id="pwBar"></div></div>
+            <span class="auth-pw-label" id="pwLabel"></span>
+          </div>
+          <span class="auth-error-msg">Password must be at least 8 characters</span>
+        </div>
+
+        <div class="auth-field" id="s2fieldConfirm">
+          <label class="auth-label">Confirm password</label>
+          <div class="auth-input-wrap">
+            <span class="auth-input-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </span>
+            <input type="password" id="s2Confirm" class="auth-input" placeholder="Repeat your password" autocomplete="new-password"/>
+            <button type="button" class="auth-pw-toggle" onclick="togglePw('s2Confirm',this)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <span class="auth-error-msg">Passwords do not match</span>
+        </div>
+
+        <button type="submit" class="auth-submit" style="margin-top:4px;">
+          Create free account
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+
+      </form>
+    </div>
+
+    <div class="auth-trust">
+      <div class="auth-trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Free forever</div>
+      <div class="auth-trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>No credit card</div>
+      <div class="auth-trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>2 min setup</div>
+    </div>
+
+  </div>
+
+  <script>
+    var selectedRole = 'owner';
+
+    function selectRole(btn) {
+      document.querySelectorAll('.auth-role-btn').forEach(function(b) { b.classList.remove('role-active'); });
+      btn.classList.add('role-active');
+      selectedRole = btn.getAttribute('data-role');
+    }
+
+    function goStep2(e) {
+      e.preventDefault();
+      var pharmacy = document.getElementById('s1Pharmacy');
+      var name = document.getElementById('s1Name');
+      var valid = true;
+
+      if (!pharmacy.value.trim()) { document.getElementById('s1fieldPharmacy').classList.add('has-error'); pharmacy.classList.add('auth-input-error'); valid = false; }
+      else { document.getElementById('s1fieldPharmacy').classList.remove('has-error'); pharmacy.classList.remove('auth-input-error'); }
+
+      if (!name.value.trim()) { document.getElementById('s1fieldName').classList.add('has-error'); name.classList.add('auth-input-error'); valid = false; }
+      else { document.getElementById('s1fieldName').classList.remove('has-error'); name.classList.remove('auth-input-error'); }
+
+      if (!valid) return;
+
+      var initials = name.value.trim().split(' ').map(function(w){return w[0];}).join('').toUpperCase().slice(0,2);
+      document.getElementById('summaryAvatar').textContent   = initials;
+      document.getElementById('summaryName').textContent     = name.value.trim();
+      document.getElementById('summaryPharmacy').textContent = pharmacy.value.trim() + ' · ' + selectedRole.charAt(0).toUpperCase() + selectedRole.slice(1);
+
+      transition('signupStep1', 'signupStep2', -1);
+
+      document.getElementById('stepDot1').classList.remove('auth-step-active');
+      document.getElementById('stepDot1').classList.add('auth-step-done');
+      document.getElementById('stepDot1').querySelector('.auth-step-dot').textContent = '';
+      document.getElementById('stepDot2').classList.add('auth-step-active');
+      document.getElementById('stepConnector').style.background = '#1a9e5c';
+    }
+
+    function goBack() {
+      transition('signupStep2', 'signupStep1', 1);
+      document.getElementById('stepDot2').classList.remove('auth-step-active');
+      document.getElementById('stepDot1').classList.remove('auth-step-done');
+      document.getElementById('stepDot1').classList.add('auth-step-active');
+      document.getElementById('stepDot1').querySelector('.auth-step-dot').textContent = '1';
+      document.getElementById('stepConnector').style.background = '#e2e8e2';
+    }
+
+    function transition(hideId, showId, dir) {
+      var hide = document.getElementById(hideId);
+      var show = document.getElementById(showId);
+      hide.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+      hide.style.opacity = '0';
+      hide.style.transform = 'translateX(' + (dir * 20) + 'px)';
+      setTimeout(function() {
+        hide.style.display = 'none';
+        show.style.display = 'block';
+        show.style.opacity = '0';
+        show.style.transform = 'translateX(' + (dir * -20) + 'px)';
+        show.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() {
+            show.style.opacity = '1';
+            show.style.transform = 'translateX(0)';
+          });
+        });
+        window.scrollTo({top:0, behavior:'smooth'});
+      }, 200);
+    }
+
+    function togglePw(id, btn) {
+      var el = document.getElementById(id);
+      var isText = el.type === 'text';
+      el.type = isText ? 'password' : 'text';
+      btn.innerHTML = isText
+        ? '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>'
+        : '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+    }
+
+    function checkStrength(val) {
+      var bar = document.getElementById('pwBar');
+      var lbl = document.getElementById('pwLabel');
+      var wrap = document.getElementById('pwStrength');
+      if (!val) { wrap.classList.remove('visible'); return; }
+      wrap.classList.add('visible');
+      var score = 0;
+      if (val.length >= 8) score++;
+      if (val.length >= 12) score++;
+      if (/[A-Z]/.test(val)) score++;
+      if (/[0-9]/.test(val)) score++;
+      if (/[^A-Za-z0-9]/.test(val)) score++;
+      var levels = [
+        {w:'20%', bg:'#e03e3e', t:'Too weak'},
+        {w:'40%', bg:'#e03e3e', t:'Weak'},
+        {w:'60%', bg:'#d97706', t:'Fair'},
+        {w:'80%', bg:'#1a9e5c', t:'Good'},
+        {w:'100%',bg:'#1a9e5c', t:'Strong'}
+      ];
+      var lv = levels[Math.min(score,4)];
+      bar.style.width = lv.w; bar.style.background = lv.bg;
+      lbl.textContent = lv.t; lbl.style.color = lv.bg;
+    }
+
+    function handleSignup(e) {
+      e.preventDefault();
+      var email = document.getElementById('s2Email');
+      var pw    = document.getElementById('s2Password');
+      var conf  = document.getElementById('s2Confirm');
+      var valid = true;
+
+      function setErr(fId, el, show) {
+        document.getElementById(fId).classList.toggle('has-error', show);
+        el.classList.toggle('auth-input-error', show);
+        if (show) valid = false;
+      }
+
+      setErr('s2fieldEmail',    email, !email.value || !email.value.includes('@'));
+      setErr('s2fieldPassword', pw,    !pw.value || pw.value.length < 8);
+      setErr('s2fieldConfirm',  conf,  conf.value !== pw.value);
+
+      if (valid) {
+        console.log('Signup complete:', {
+          pharmacy: document.getElementById('s1Pharmacy').value,
+          name: document.getElementById('s1Name').value,
+          role: selectedRole,
+          email: email.value
+        });
+      }
+    }
+  </script>
+</body>
+</html>

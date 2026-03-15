@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedEase</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="floating-navbar">
+    <div class="nav-wrapper">
+
+      <div class="nav-left">
+        <span class="logo">MedEase</span>
+      </div>
+
+      <div class="nav-center">
+        <a href="#">Features</a>
+        <a href="#">How it Works</a>
+        <a href="#">Insights</a>
+        <a href="#">Use Cases</a>
+        <a href="#">Project</a>
+      </div>
+
+      <div class="nav-right">
+        <a class="btn-login" href="login.html">Log in</a>
+        <a class="btn-cta" href="signup.html">Get Started</a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  
+  <section class="hero">
+    <div class="container hero-inner">
+
+      <!-- Eyebrow pill -->
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        Free pharmacy software — no subscription ever
+      </div>
+
+      <!-- Headline -->
+      <h1 class="hero-title">
+        Run your <span class="hover-pharmacy">pharmacy</span> smarter. Completely free.
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="hero-sub">
+        Manage inventory, billing, expiry alerts and demand forecasts<br>
+        in one platform built for Indian pharmacies.
+      </p>
+
+      <!-- CTA buttons -->
+      <div class="hero-buttons">
+        <a href="signup.html" class="btn-primary hero-btn-primary">
+          Get Started
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="login.html" class="btn-secondary">Login</a>
+      </div>
+
+      <!-- Trust line — honest, no fake numbers -->
+      <p class="hero-trust">
+        Free forever · No credit card · Setup in 2 minutes
+      </p>
+
+    </div>
+  </section>
+  <!-- ══ END HERO SECTION ══ -->
+
+  <!-- DASHBOARD SECTION -->
+  <section class="dashboard-section" id="dashboard">
+    <div class="container">
+
+      <!-- Section heading -->
+      <div class="dashboard-section-header">
+        <div class="dashboard-eyebrow">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Live Dashboard
+        </div>
+        <h2 class="dashboard-section-title">Everything at a glance.<br><span class="dashboard-title-accent">Your pharmacy. Your data.</span></h2>
+        <p class="dashboard-section-desc">From today's sales to expiring medicines — MedEase puts every number that matters right in front of you. Click the tabs to explore.</p>
+      </div>
+
+      <!-- Browser frame -->
+      <div class="dash-browser-frame" id="dashBrowserFrame">
+
+        <!-- Browser chrome bar -->
+        <div class="dash-browser-bar">
+          <div class="dash-browser-dots">
+            <span class="dash-dot dash-dot-red"></span>
+            <span class="dash-dot dash-dot-yellow"></span>
+            <span class="dash-dot dash-dot-green"></span>
+          </div>
+          <div class="dash-url-bar">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            medease.in/dashboard
+          </div>
+          <div class="dash-tab-buttons">
+            <button class="dash-tab-btn dash-tab-active" onclick="dashSwitchTab('overview', this)">Overview</button>
+            <button class="dash-tab-btn" onclick="dashSwitchTab('inventory', this)">Inventory</button>
+            <button class="dash-tab-btn" onclick="dashSwitchTab('alerts', this)">Alerts</button>
+            <button class="dash-tab-btn" onclick="dashSwitchTab('insights', this)">Insights</button>
+          </div>
+        </div>
+
+        <!-- Dashboard inner -->
+        <div class="dash-inner">
+
+          <!-- ══ TAB: OVERVIEW ══ -->
+          <div class="dash-panel dash-panel-active" id="dash-tab-overview">
+
+            <!-- Top bar: store info + user -->
+            <div class="dash-topbar">
+              <div class="dash-topbar-left">
+                <div class="dash-store-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <div>
+                  <div class="dash-store-name">Khandelwal Pharmacy</div>
+                  <div class="dash-store-sub">Store #042 · Bhopal</div>
+                </div>
+              </div>
+              <div class="dash-topbar-right">
+                <div class="dash-user-info">
+                  <div class="dash-user-name">Rohan Khandelwal</div>
+                  <div class="dash-user-id">EMP ID: KP2026001</div>
+                </div>
+                <div class="dash-avatar">RK</div>
+              </div>
+            </div>
+
+            <!-- 4 stat cards -->
+            <div class="dash-stat-grid">
+              <div class="dash-stat-box">
+                <div class="dash-stat-label">Today's Sales
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a9e5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <div class="dash-stat-value">₹1,02,235</div>
+                <div class="dash-stat-sub"><span class="dash-up">↑ 12.5% vs yesterday</span></div>
+              </div>
+              <div class="dash-stat-box">
+                <div class="dash-stat-label">Yesterday</div>
+                <div class="dash-stat-value">₹90,876</div>
+                <div class="dash-stat-sub">Closed transactions</div>
+              </div>
+              <div class="dash-stat-box">
+                <div class="dash-stat-label">7-Day Average</div>
+                <div class="dash-stat-value">₹92,499</div>
+                <div class="dash-stat-sub">Per day revenue</div>
+              </div>
+              <div class="dash-stat-box">
+                <div class="dash-stat-label">Transactions</div>
+                <div class="dash-stat-value">370</div>
+                <div class="dash-stat-sub">Today so far</div>
+              </div>
+            </div>
+
+            <!-- Main 2-col grid: left content + right sidebar -->
+            <div class="dash-main-grid">
+
+              <!-- LEFT: Top sellers + Offer-based sales -->
+              <div class="dash-left-col">
+
+                <div class="dash-two-col">
+                  <!-- Top 5 selling -->
+                  <div class="dash-card">
+                    <div class="dash-card-header">
+                      <div class="dash-card-title">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                        Top 5 Selling Products
+                      </div>
+                      <span class="dash-badge dash-badge-green dash-pulse">Live</span>
+                    </div>
+                    <div class="dash-list-item"><div><div class="dash-li-name">Dolo 650mg</div><div class="dash-li-sub">52 units</div></div><div class="dash-li-val">₹7,800</div></div>
+                    <div class="dash-list-item"><div><div class="dash-li-name">Paracetamol 500mg</div><div class="dash-li-sub">46 units</div></div><div class="dash-li-val">₹4,140</div></div>
+                    <div class="dash-list-item"><div><div class="dash-li-name">Cetirizine 10mg</div><div class="dash-li-sub">38 units</div></div><div class="dash-li-val">₹2,660</div></div>
+                    <div class="dash-list-item"><div><div class="dash-li-name">Azithromycin 500mg</div><div class="dash-li-sub">31 units</div></div><div class="dash-li-val">₹9,300</div></div>
+                    <div class="dash-list-item"><div><div class="dash-li-name">Vitamin D3</div><div class="dash-li-sub">27 units</div></div><div class="dash-li-val">₹4,050</div></div>
+                  </div>
+
+                  <!-- Offer-based sales -->
+                  <div class="dash-card">
+                    <div class="dash-card-header">
+                      <div class="dash-card-title">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                        Offer-Based Sales
+                      </div>
+                    </div>
+                    <div class="dash-offer-row">
+                      <div><div class="dash-li-name">Buy 1 Get 1 Free</div><div class="dash-li-sub">Revenue: ₹9,240</div></div>
+                      <span class="dash-badge dash-badge-blue">32 items</span>
+                    </div>
+                    <div class="dash-offer-row">
+                      <div><div class="dash-li-name">20% Off Healthcare</div><div class="dash-li-sub">Revenue: ₹13,580</div></div>
+                      <span class="dash-badge dash-badge-green">48 items</span>
+                    </div>
+                    <div class="dash-offer-row">
+                      <div><div class="dash-li-name">Combo Pack Deals</div><div class="dash-li-sub">Revenue: ₹6,890</div></div>
+                      <span class="dash-badge dash-badge-amber">21 items</span>
+                    </div>
+                    <div class="dash-offer-row">
+                      <div><div class="dash-li-name">Senior Citizen 10%</div><div class="dash-li-sub">Revenue: ₹4,860</div></div>
+                      <span class="dash-badge dash-badge-blue">17 items</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Advance Orders + Pending Deliveries -->
+                <div class="dash-two-col" style="margin-top:12px;">
+
+                  <!-- Advance Orders -->
+                  <div class="dash-card">
+                    <div class="dash-card-header">
+                      <div class="dash-card-title">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        Advance Orders
+                      </div>
+                      <span class="dash-badge dash-badge-blue">3</span>
+                    </div>
+                    <div class="dash-order-row">
+                      <div class="dash-order-top">
+                        <div><div class="dash-li-name">Rajesh Kumar</div><div class="dash-li-sub">ADV-2024-128 · 8 items</div></div>
+                        <span class="dash-badge dash-badge-green">Ready</span>3
+                      </div>
+                      <div class="dash-order-bot"><span class="dash-li-val">₹2,450</span><span class="dash-order-eta">⏱ ETA 2:00 PM</span></div>
+                    </div>
+                    <div class="dash-order-row">
+                      <div class="dash-order-top">
+                        <div><div class="dash-li-name">Anita Desai</div><div class="dash-li-sub">ADV-2024-129 · 3 items</div></div>
+                        <span class="dash-badge dash-badge-amber">Processing</span>
+                      </div>
+                      <div class="dash-order-bot"><span class="dash-li-val">₹890</span><span class="dash-order-eta">⏱ ETA 3:30 PM</span></div>
+                    </div>
+                    <div class="dash-order-row">
+                      <div class="dash-order-top">
+                        <div><div class="dash-li-name">Vikram Singh</div><div class="dash-li-sub">ADV-2024-130 · 12 items</div></div>
+                        <span class="dash-badge dash-badge-gray">Pending</span>
+                      </div>
+                      <div class="dash-order-bot"><span class="dash-li-val">₹4,120</span><span class="dash-order-eta">⏱ ETA 5:00 PM</span></div>
+                    </div>
+                  </div>
+
+                  <!-- Pending Deliveries -->
+                  <div class="dash-card">
+                    <div class="dash-card-header">
+                      <div class="dash-card-title">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                        Pending Deliveries
+                      </div>
+                      <span class="dash-badge dash-badge-red">3</span>
+                    </div>
+                    <div class="dash-delivery-row dash-delivery-urgent">
+                      <div class="dash-delivery-top">
+                        <div class="dash-li-name">Meera Patel</div>
+                        <span class="dash-badge dash-badge-red dash-pulse">Urgent</span>
+                      </div>
+                      <div class="dash-li-sub">📍 Shahpura, Bhopal · 5 items</div>
+                    </div>
+                    <div class="dash-delivery-row">
+                      <div class="dash-li-name">Arjun Rao</div>
+                      <div class="dash-li-sub">📍 Ayodhya Bypass Road, Bhopal · 3 items</div>
+                    </div>
+                    <div class="dash-delivery-row">
+                      <div class="dash-li-name">Lakshmi Iyer</div>
+                      <div class="dash-li-sub">📍 Bawadiya Kalan, Bhopal · 4 items</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- CRM Call Reminders -->
+                <div class="dash-card" style="margin-top:12px;">
+                  <div class="dash-card-header">
+                    <div class="dash-card-title">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.9 16z"/></svg>
+                      CRM Call Reminders
+                    </div>
+                    <span class="dash-badge dash-badge-amber">3 customers to call</span>
+                  </div>
+                  <div class="dash-crm-grid">
+                    <div class="dash-crm-row">
+                      <div class="dash-crm-info">
+                        <div class="dash-li-name">Sanjay Gupta</div>
+                        <div class="dash-li-sub">+91 98765 43210</div>
+                        <div class="dash-li-sub">Thyroid medication refill</div>
+                        <div class="dash-li-sub" style="margin-top:2px;">🗓 25 days ago</div>
+                      </div>
+                      <button class="dash-call-btn">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.9 16z"/></svg>
+                        Call
+                      </button>
+                    </div>
+                    <div class="dash-crm-row">
+                      <div class="dash-crm-info">
+                        <div class="dash-li-name">Priya Sharma</div>
+                        <div class="dash-li-sub">+91 98765 43211</div>
+                        <div class="dash-li-sub">Blood pressure medicine</div>
+                        <div class="dash-li-sub" style="margin-top:2px;">🗓 28 days ago</div>
+                      </div>
+                      <button class="dash-call-btn">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.9 16z"/></svg>
+                        Call
+                      </button>
+                    </div>
+                    <div class="dash-crm-row">
+                      <div class="dash-crm-info">
+                        <div class="dash-li-name">Rahul Mehta</div>
+                        <div class="dash-li-sub">+91 98765 43212</div>
+                        <div class="dash-li-sub">Diabetes medication</div>
+                        <div class="dash-li-sub" style="margin-top:2px;">🗓 26 days ago</div>
+                      </div>
+                      <button class="dash-call-btn">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.9 16z"/></svg>
+                        Call
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+              </div><!-- end left col -->
+
+              <!-- RIGHT SIDEBAR -->
+              <div class="dash-right-col">
+
+                <!-- Quick Actions -->
+                <div class="dash-card">
+                  <div class="dash-card-title">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    Quick Actions
+                  </div>
+                  <button class="dash-action-btn dash-action-green">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+                    New Sale
+                  </button>
+                  <button class="dash-action-btn dash-action-dark">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    Advance Sale
+                  </button>
+                  <button class="dash-action-btn dash-action-outline">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Add Customer
+                  </button>
+                  <button class="dash-action-btn dash-action-outline">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.99"/></svg>
+                    Refund / Return
+                  </button>
+                  <button class="dash-action-btn dash-action-outline">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    End of Day
+                  </button>
+                </div>
+
+                <!-- Notifications -->
+                <div class="dash-card">
+                  <div class="dash-card-header">
+                    <div class="dash-card-title">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                      Notifications
+                    </div>
+                    <span class="dash-badge dash-badge-green">3 New</span>
+                  </div>
+                  <div class="dash-notif-row"><span class="dash-notif-dot dash-dot-color-red"></span><div><div class="dash-notif-title">HO: Inventory Audit Due</div><div class="dash-li-sub">Complete audit by 6 PM today</div></div><span class="dash-notif-time">1 hr ago</span></div>
+                  <div class="dash-notif-row"><span class="dash-notif-dot dash-dot-color-green"></span><div><div class="dash-notif-title">New Product Launch</div><div class="dash-li-sub">Himalaya Immunity Booster</div></div><span class="dash-notif-time">10 min</span></div>
+                  <div class="dash-notif-row"><span class="dash-notif-dot dash-dot-color-amber"></span><div><div class="dash-notif-title">System Maintenance</div><div class="dash-li-sub">Tonight 11PM – 2AM</div></div><span class="dash-notif-time">2 hr ago</span></div>
+                </div>
+
+                <!-- Daily To-Do -->
+                <div class="dash-card">
+                  <div class="dash-card-title">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    Daily To-Do
+                  </div>
+                  <div class="dash-todo-row">
+                    <div class="dash-todo-check dash-todo-done" onclick="dashToggleTodo(this)"></div>
+                    <span class="dash-todo-label dash-todo-label-done">Verify morning stock count</span>
+                  </div>
+                  <div class="dash-todo-row">
+                    <div class="dash-todo-check" onclick="dashToggleTodo(this)"></div>
+                    <span class="dash-todo-label" style="flex:1">Update expiry date log</span>
+                    <span class="dash-badge dash-badge-red">High</span>
+                  </div>
+                  <div class="dash-todo-row">
+                    <div class="dash-todo-check" onclick="dashToggleTodo(this)"></div>
+                    <span class="dash-todo-label">Process vendor invoices</span>
+                  </div>
+                  <div class="dash-todo-row">
+                    <div class="dash-todo-check" onclick="dashToggleTodo(this)"></div>
+                    <span class="dash-todo-label">Customer feedback review</span>
+                  </div>
+                </div>
+
+                <!-- Transfer-In -->
+                <div class="dash-card">
+                  <div class="dash-card-header">
+                    <div class="dash-card-title">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+                      Transfer-In
+                    </div>
+                    <span class="dash-badge dash-badge-blue">2</span>
+                  </div>
+                  <div class="dash-transfer-row">
+                    <div class="dash-transfer-icon">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    </div>
+                    <div style="flex:1">
+                      <div class="dash-li-name">TRN-IN-342</div>
+                      <div class="dash-li-sub">From Store #028 · 24 items</div>
+                    </div>
+                    <div class="dash-transfer-eta">Today, 4 PM</div>
+                  </div>
+                  <div class="dash-transfer-row">
+                    <div class="dash-transfer-icon">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    </div>
+                    <div style="flex:1">
+                      <div class="dash-li-name">TRN-IN-343</div>
+                      <div class="dash-li-sub">From Store #020 · 8 items</div>
+                    </div>
+                    <div class="dash-transfer-eta">Tomorrow</div>
+                  </div>
+                </div>
+
+                <!-- Critical Alerts -->
+                <div class="dash-card dash-card-critical">
+                  <div class="dash-card-header">
+                    <div class="dash-card-title dash-title-red">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                      Critical Alerts
+                    </div>
+                    <span class="dash-badge dash-badge-red dash-pulse">Urgent</span>
+                  </div>
+                  <div class="dash-alert-group-label dash-alert-label-red">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    Low Stock Alert
+                  </div>
+                  <div class="dash-crit-item dash-crit-red">
+                    <div class="dash-li-name">Azithromycin 500mg</div>
+                    <div class="dash-li-sub">Only 8 units left</div>
+                  </div>
+                  <div class="dash-crit-item dash-crit-red">
+                    <div class="dash-li-name">Insulin Aspart</div>
+                    <div class="dash-li-sub">Only 3 units left</div>
+                  </div>
+                  <div class="dash-alert-group-label dash-alert-label-amber" style="margin-top:12px;">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Expiring Soon
+                  </div>
+                  <div class="dash-crit-item dash-crit-amber">
+                    <div class="dash-li-name">Amoxicillin 250mg</div>
+                    <div class="dash-li-sub">Expires in 12 days</div>
+                  </div>
+                  <div class="dash-crit-item dash-crit-amber">
+                    <div class="dash-li-name">Metformin 500mg</div>
+                    <div class="dash-li-sub">Expires in 18 days</div>
+                  </div>
+                </div>
+
+              </div><!-- end right col -->
+            </div><!-- end main grid -->
+          </div><!-- end overview panel -->
+
+          <!-- ══ TAB: INVENTORY ══ -->
+          <div class="dash-panel" id="dash-tab-inventory">
+            <div class="dash-inv-stat-grid">
+              <div class="dash-inv-stat"><div class="dash-inv-num dash-num-green">1,284</div><div class="dash-inv-label">Total medicines</div></div>
+              <div class="dash-inv-stat"><div class="dash-inv-num dash-num-amber">23</div><div class="dash-inv-label">Low stock</div></div>
+              <div class="dash-inv-stat"><div class="dash-inv-num dash-num-red">8</div><div class="dash-inv-label">Out of stock</div></div>
+            </div>
+            <div class="dash-table">
+              <div class="dash-thead"><span>Medicine</span><span>Category</span><span>Stock</span><span>Expiry</span><span>Status</span></div>
+              <div class="dash-trow"><div><div class="dash-med-name">Dolo 650mg</div><div class="dash-med-cat">Analgesic</div></div><span class="dash-td">Tablet</span><div><div class="dash-td">248 units</div><div class="dash-stock-bar"><div class="dash-stock-fill dash-fill-good" style="width:82%"></div></div></div><span class="dash-td">Mar 2026</span><span class="dash-badge dash-badge-green">Good</span></div>
+              <div class="dash-trow"><div><div class="dash-med-name">Azithromycin 500mg</div><div class="dash-med-cat">Antibiotic</div></div><span class="dash-td">Tablet</span><div><div class="dash-td">8 units</div><div class="dash-stock-bar"><div class="dash-stock-fill dash-fill-red" style="width:8%"></div></div></div><span class="dash-td">Jun 2026</span><span class="dash-badge dash-badge-red">Critical</span></div>
+              <div class="dash-trow"><div><div class="dash-med-name">Paracetamol 500mg</div><div class="dash-med-cat">Analgesic</div></div><span class="dash-td">Tablet</span><div><div class="dash-td">156 units</div><div class="dash-stock-bar"><div class="dash-stock-fill dash-fill-good" style="width:65%"></div></div></div><span class="dash-td">Aug 2026</span><span class="dash-badge dash-badge-green">Good</span></div>
+              <div class="dash-trow"><div><div class="dash-med-name">Amoxicillin 250mg</div><div class="dash-med-cat">Antibiotic</div></div><span class="dash-td">Capsule</span><div><div class="dash-td">42 units</div><div class="dash-stock-bar"><div class="dash-stock-fill dash-fill-amber" style="width:28%"></div></div></div><span class="dash-td">Mar 2025</span><span class="dash-badge dash-badge-amber">Expiring</span></div>
+              <div class="dash-trow"><div><div class="dash-med-name">Insulin Aspart</div><div class="dash-med-cat">Antidiabetic</div></div><span class="dash-td">Injection</span><div><div class="dash-td">3 units</div><div class="dash-stock-bar"><div class="dash-stock-fill dash-fill-red" style="width:4%"></div></div></div><span class="dash-td">Sep 2026</span><span class="dash-badge dash-badge-red">Critical</span></div>
+              <div class="dash-trow"><div><div class="dash-med-name">Metformin 500mg</div><div class="dash-med-cat">Antidiabetic</div></div><span class="dash-td">Tablet</span><div><div class="dash-td">310 units</div><div class="dash-stock-bar"><div class="dash-stock-fill dash-fill-good" style="width:90%"></div></div></div><span class="dash-td">Dec 2026</span><span class="dash-badge dash-badge-green">Good</span></div>
+            </div>
+          </div>
+
+          <!-- ══ TAB: ALERTS ══ -->
+          <div class="dash-panel" id="dash-tab-alerts">
+            <div class="dash-alert-group-label dash-alert-label-red">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Critical — Low stock
+            </div>
+            <div class="dash-alert-grid">
+              <div class="dash-alert-item dash-alert-red"><span class="dash-alert-dot dash-dot-color-red dash-pulse"></span><div class="dash-alert-body"><div class="dash-alert-name">Azithromycin 500mg</div><div class="dash-alert-sub">Only 8 units remaining · Reorder now</div></div><div class="dash-alert-right"><div class="dash-alert-val">8 left</div><div class="dash-alert-tag">Antibiotic</div></div></div>
+              <div class="dash-alert-item dash-alert-red"><span class="dash-alert-dot dash-dot-color-red dash-pulse"></span><div class="dash-alert-body"><div class="dash-alert-name">Insulin Aspart</div><div class="dash-alert-sub">Only 3 units remaining · Urgent</div></div><div class="dash-alert-right"><div class="dash-alert-val">3 left</div><div class="dash-alert-tag">Injection</div></div></div>
+            </div>
+            <div class="dash-alert-group-label dash-alert-label-amber" style="margin-top:16px;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Expiring soon
+            </div>
+            <div class="dash-alert-grid">
+              <div class="dash-alert-item dash-alert-amber"><span class="dash-alert-dot dash-dot-color-amber"></span><div class="dash-alert-body"><div class="dash-alert-name">Amoxicillin 250mg</div><div class="dash-alert-sub">Expires in 12 days · ₹1,890 at risk</div></div><div class="dash-alert-right"><div class="dash-alert-val">12 days</div><div class="dash-alert-tag">42 units</div></div></div>
+              <div class="dash-alert-item dash-alert-amber"><span class="dash-alert-dot dash-dot-color-amber"></span><div class="dash-alert-body"><div class="dash-alert-name">Metformin 500mg</div><div class="dash-alert-sub">Expires in 18 days · ₹3,510 at risk</div></div><div class="dash-alert-right"><div class="dash-alert-val">18 days</div><div class="dash-alert-tag">78 units</div></div></div>
+              <div class="dash-alert-item dash-alert-amber"><span class="dash-alert-dot dash-dot-color-amber"></span><div class="dash-alert-body"><div class="dash-alert-name">Cough Syrup 100ml</div><div class="dash-alert-sub">Expires in 24 days · ₹720 at risk</div></div><div class="dash-alert-right"><div class="dash-alert-val">24 days</div><div class="dash-alert-tag">16 units</div></div></div>
+              <div class="dash-alert-item"><span class="dash-alert-dot dash-dot-color-green"></span><div class="dash-alert-body"><div class="dash-alert-name">Cetirizine 10mg</div><div class="dash-alert-sub">Expiring in 45 days · Monitor</div></div><div class="dash-alert-right"><div class="dash-alert-val">45 days</div><div class="dash-alert-tag">120 units</div></div></div>
+            </div>
+          </div>
+
+          <!-- ══ TAB: INSIGHTS ══ -->
+          <div class="dash-panel" id="dash-tab-insights">
+            <div class="dash-insights-grid">
+              <div class="dash-insight-card"><div class="dash-insight-icon dash-icon-red"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><div class="dash-insight-metric">₹5,400</div><div class="dash-insight-label">Expiry risk this month</div><div class="dash-insight-sub">Medicines expiring within 30 days. Act now to avoid total loss.</div><div class="dash-insight-trend dash-trend-down">↑ ₹1,200 more than last month</div></div>
+              <div class="dash-insight-card"><div class="dash-insight-icon dash-icon-amber"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="dash-insight-metric">3 days</div><div class="dash-insight-label">Paracetamol reorder window</div><div class="dash-insight-sub">Based on daily sales of 38 units. Current stock lasts ~3 days.</div><div class="dash-insight-trend dash-trend-down">↓ Faster than usual this week</div></div>
+              <div class="dash-insight-card"><div class="dash-insight-icon dash-icon-green"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="dash-insight-metric">+40%</div><div class="dash-insight-label">Cough syrup sales surge</div><div class="dash-insight-sub">Sales up 40% this week vs last. Consider increasing stock order.</div><div class="dash-insight-trend dash-trend-up">↑ Trending upward — seasonal demand</div></div>
+              <div class="dash-insight-card"><div class="dash-insight-icon dash-icon-blue"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div class="dash-insight-metric">₹12,000</div><div class="dash-insight-label">Dead stock value</div><div class="dash-insight-sub">18 medicines with zero sales in 60+ days. Return to supplier.</div><div class="dash-insight-trend" style="color:#7a8c7d;">→ Review and return before expiry</div></div>
+            </div>
+          </div>
+
+        </div><!-- end dash-inner -->
+      </div><!-- end browser frame -->
+    </div><!-- end container -->
+  </section>
+
+  <!--PRODUCT DEFINITION SECTION -->
+
+  <section class="product-definition" id="product-definition">
+    <div class="container pd-inner">
+      <p class="definition-text" id="definitionText">
+
+        <span class="pd-word" id="pdBrand">MedEase</span>
+        <span class="pd-word pd-arrow" id="pdArrow">→</span>
+        <span class="pd-word">is</span>
+        <span class="pd-word">a</span>
+        <span class="pd-word">modern</span>
+        <span class="pd-word">platform</span>
+        <span class="pd-word">for</span>
+        <span class="pd-word">managing</span>
+        <span class="pd-word pd-highlight-blue">pharmacy</span>
+        <span class="pd-word pd-highlight-blue">operations</span>
+        <span class="pd-word">by</span>
+        <span class="pd-word">handling</span>
+        <span class="pd-word pd-highlight-amber">inventory,</span>
+        <span class="pd-word pd-highlight-amber">billing,</span>
+        <span class="pd-word pd-highlight-amber">expiry</span>
+        <span class="pd-word pd-highlight-amber">alerts,</span>
+        <span class="pd-word pd-dim">suppliers,</span>
+        <span class="pd-word pd-highlight-teal">prescriptions,</span>
+        <span class="pd-word pd-highlight-purple">sales</span>
+        <span class="pd-word pd-highlight-purple">reports.</span>
+
+      </p>
+    </div>
+  </section>
+  <!-- ══ END PRODUCT DEFINITION ══ -->
+
+  <!-- FEATURES SECTION-->
+
+  <section class="features-section" id="features">
+    <div class="container">
+
+      <!-- Section heading -->
+      <div class="features-header">
+        <div class="features-eyebrow">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+          Features
+        </div>
+        <h2 class="features-title">Everything your pharmacy needs-<br>nothing you don't</h2>
+        <p class="features-desc">Six tools. One platform. Zero subscription fees.</p>
+      </div>
+
+      <!-- 3x2 Feature grid -->
+      <div class="features-grid" id="featuresGrid">
+
+        <!-- Card 1: Inventory Management -->
+        <div class="feat-card" data-id="0" onclick="featSelect(0)">
+          <div class="feat-card-inner">
+            <div class="feat-icon feat-icon-green">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+            </div>
+            <h3 class="feat-title">Inventory management</h3>
+            <p class="feat-desc">Track every medicine, batch and expiry date. Get low-stock alerts before you run out.</p>
+            <span class="feat-tag">Batch-level tracking</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Fast POS Billing -->
+        <div class="feat-card" data-id="1" onclick="featSelect(1)">
+          <div class="feat-card-inner">
+            <div class="feat-icon feat-icon-blue">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
+            </div>
+            <h3 class="feat-title">Fast POS billing</h3>
+            <p class="feat-desc">Search medicines, add to cart and generate invoices in seconds. Stock deducts automatically.</p>
+            <span class="feat-tag">FEFO built in</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Expiry Alerts -->
+        <div class="feat-card" data-id="2" onclick="featSelect(2)">
+          <div class="feat-card-inner">
+            <div class="feat-icon feat-icon-amber">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <h3 class="feat-title">Expiry alerts</h3>
+            <p class="feat-desc">See what expires in 30, 60 or 90 days — and the exact rupee value of medicines at risk.</p>
+            <span class="feat-tag">₹ value at risk</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Supplier Management -->
+        <div class="feat-card" data-id="3" onclick="featSelect(3)">
+          <div class="feat-card-inner">
+            <div class="feat-icon feat-icon-gray">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <h3 class="feat-title">Supplier management</h3>
+            <p class="feat-desc">Record purchases, manage vendors and view your full procurement history in one place.</p>
+            <span class="feat-tag">Purchase history</span>
+          </div>
+        </div>
+
+        <!-- Card 5: Demand Forecasting -->
+        <div class="feat-card" data-id="4" onclick="featSelect(4)">
+          <div class="feat-card-inner">
+            <div class="feat-icon feat-icon-purple">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h3 class="feat-title">Demand forecasting</h3>
+            <p class="feat-desc">Know which medicines need reordering before stock runs out, based on actual daily sales.</p>
+            <span class="feat-tag">AI-powered insight</span>
+          </div>
+        </div>
+
+        <!-- Card 6: Sales Reports -->
+        <div class="feat-card" data-id="5" onclick="featSelect(5)">
+          <div class="feat-card-inner">
+            <div class="feat-icon feat-icon-teal">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+            </div>
+            <h3 class="feat-title">Sales reports</h3>
+            <p class="feat-desc">Daily, weekly and monthly revenue. Profit per medicine. Everything to make better decisions.</p>
+            <span class="feat-tag">Profit tracking</span>
+          </div>
+        </div>
+
+      </div><!-- end grid -->
+
+      <!-- Expandable detail panel -->
+      <div class="feat-detail-panel" id="featDetailPanel">
+        <div class="feat-detail-inner">
+          <div class="feat-detail-left">
+            <div class="feat-detail-icon" id="featDetailIcon"></div>
+            <h3 class="feat-detail-title" id="featDetailTitle"></h3>
+            <p class="feat-detail-body" id="featDetailBody"></p>
+          </div>
+          <div class="feat-detail-right">
+            <div class="feat-detail-pills-label">What's included</div>
+            <div class="feat-detail-pills" id="featDetailPills"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footnote -->
+      <div class="features-footnote">
+        <span class="features-footnote-strong">All six features included - completely free.</span>
+        No premium tier. No feature locked behind a paywall. No trial expiry.<br>
+        Built for Indian pharmacies, by people who understand how a medical store actually runs.
+      </div>
+
+    </div>
+  </section>
+  <!-- ══ END FEATURES SECTION ══ -->
+
+  <!-- CTA SECTION -->
+  <section class="cta-section" id="cta">
+ 
+    <!-- Floating orbs (animated by GSAP) -->
+    <div class="cta-orb cta-orb-1"></div>
+    <div class="cta-orb cta-orb-2"></div>
+    <div class="cta-orb cta-orb-3"></div>
+ 
+    <!-- Grid pattern overlay -->
+    <div class="cta-grid-overlay"></div>
+ 
+    <div class="cta-inner">
+ 
+      <!-- Top label -->
+      <div class="cta-eyebrow" id="ctaEyebrow">
+        <span class="cta-eyebrow-dot"></span>
+        Built for Indian pharmacies — free forever
+      </div>
+ 
+      <!-- Main headline — splits into words for GSAP -->
+      <h2 class="cta-headline" id="ctaHeadline">
+        <span class="cta-word">Your</span>
+        <span class="cta-word">pharmacy</span>
+        <span class="cta-word cta-word-accent">deserves</span>
+        <span class="cta-word cta-word-accent">better</span>
+        <span class="cta-word">software.</span>
+      </h2>
+ 
+      <!-- Sub -->
+      <p class="cta-sub" id="ctaSub">
+        Stop losing stock to expired medicines and missed reorders.<br>
+        MedEase gives you complete control — completely free.
+      </p>
+ 
+      <!-- CTA buttons -->
+      <div class="cta-buttons" id="ctaButtons">
+        <a href="signup.html" class="cta-btn-primary" id="ctaBtnPrimary">
+          <span>Get started free</span>
+          <div class="cta-btn-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+        </a>
+        <a href="login.html" class="cta-btn-secondary">
+          Log in to your account
+        </a>
+      </div>
+ 
+      <!-- Animated stats row — counters triggered by scroll -->
+      <div class="cta-stats" id="ctaStats">
+        <div class="cta-stat-item">
+          <div class="cta-stat-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+          </div>
+          <div class="cta-stat-text">
+            <div class="cta-stat-title">Inventory</div>
+            <div class="cta-stat-desc">Track every batch and expiry date</div>
+          </div>
+        </div>
+        <div class="cta-stat-divider"></div>
+        <div class="cta-stat-item">
+          <div class="cta-stat-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+          </div>
+          <div class="cta-stat-text">
+            <div class="cta-stat-title">Billing</div>
+            <div class="cta-stat-desc">FEFO-powered POS in seconds</div>
+          </div>
+        </div>
+        <div class="cta-stat-divider"></div>
+        <div class="cta-stat-item">
+          <div class="cta-stat-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="cta-stat-text">
+            <div class="cta-stat-title">Insights</div>
+            <div class="cta-stat-desc">Demand forecast and dead stock</div>
+          </div>
+        </div>
+        <div class="cta-stat-divider"></div>
+        <div class="cta-stat-item">
+          <div class="cta-stat-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="cta-stat-text">
+            <div class="cta-stat-title">Free forever</div>
+            <div class="cta-stat-desc">No subscription, no hidden fees</div>
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        <h3>MedEase</h3>
+      </div>
+
+      <div class="footer-grid">
+
+        <div class="footer-column">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">How it Works</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Updates</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Use Cases</h4>
+          <ul>
+            <li><a href="#">Retail</a></li>
+            <li><a href="#">Hospital</a></li>
+            <li><a href="#">Medical Store</a></li>
+            <li><a href="#">Inventory</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Docs</a></li>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Project</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 MedEase - Pharmacy Management System Project. <br> Created by Raj Thakre</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/script.js"></script>
+
+</body>
+</html>
